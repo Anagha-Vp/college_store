@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center justify-content-between">
+      <h1 class="logo"><a href="{% url 'index' %}">College Store</a></h1>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="{% url 'index' %}">Home</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'login' %}">Login</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'register' %}">Register</a></li>
+          <li class="dropdown"><a href="#"><span>Departments</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="https://en.wikipedia.org/wiki/Computer_science">Computer Science</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Commerce">Commerce</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Electronics">Electronics</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Literature">Literature</a></li>
+              <li><a href="https://en.wikipedia.org/wiki/Arts_in_education">Arts</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+<!--   ======= Hero Section ======= -->
+  <section id="hero">
+    <div class="hero-container">
+      <h1>Welcome to College Store</h1>
+      <h2>Smart Shopping For Smart Students!</h2>
+      <a href="{% url 'login' %}" class="btn-get-started scrollto">Login Here</a>
+    </div>
+  </section>
+  <!-- End Hero -->
+
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+        <div class="section-title">
+          <h2>About</h2>
+          <h3>Learn More <span>About Us</span></h3>
+          <p>The Stationary Store Only for Students , Teachers and Other Staffs in College.Some of the items in the store is listed below:</p>
+        </div>
+        <div class="row content">
+          <div class="col-lg-3">
+            <ul>
+              <li><i class="ri-check-double-line"></i>Notebooks</li>
+              <li><i class="ri-check-double-line"></i>Pens and Pencils</li>
+              <li><i class="ri-check-double-line"></i>A4 Papers</li>
+              <li><i class="ri-check-double-line"></i>Text Books</li>
+            </ul>
+          </div>
+          <div class="col-lg-3">
+            <ul>
+            <li><i class="ri-check-double-line"></i>Record Books</li>
+            <li><i class="ri-check-double-line"></i>Calculators</li>
+            <li><i class="ri-check-double-line"></i>Instrument Boxes</li>
+             <li><i class="ri-check-double-line"></i>Bag packs</li>
+            </ul>
+          </div>
+           <div class="col-lg-3">
+            <ul>
+             <li><i class="ri-check-double-line"></i>Napkins</li>
+              <li><i class="ri-check-double-line"></i>Water Bottles</li>
+              <li><i class="ri-check-double-line"></i>Lunch Boxes</li>
+              <li><i class="ri-check-double-line"></i>Stapler</li>
+            </ul>
+          </div>
+           <div class="col-lg-3">
+            <ul>
+            <li><i class="ri-check-double-line"></i>Glue</li>
+            <li><i class="ri-check-double-line"></i>Scissors</li>
+            <li><i class="ri-check-double-line"></i>Rough Books</li>
+             <li><i class="ri-check-double-line"></i>Calenders</li>
+            </ul>
+          </div>
+        </div>
+        <br>
+        <h5 class="about-end"><b>And Many More..</b></h5>
+      </div>
+    </section>
+    <!-- End About Section -->
+  </main>
+  <!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer class="footer">
+          <p>&copy;<strong><span>College Store</span></strong>. All Rights Reserved</p>
+  </footer>
+  <!-- End Footer -->
+{% endblock %}

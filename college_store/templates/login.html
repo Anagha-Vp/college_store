@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="background-container">
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mt-5 custom-card">
+                <div class="card-header text-center"><b>Login</b></div>
+                <div class="card-body">
+                    <form action="login" method="post">
+                       {% csrf_token %}
+                        <div class="form-group">
+                            <label><b>Username:</b></label>
+                            <input type="text" name="username" class="form-control" placeholder="Enter your username">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Password:</b></label>
+                            <input type="password" name="password" class="form-control" placeholder="Enter your password">
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                        <br>
+                        <br>
+                        <p>Don't have an account? <a href="{% url 'register' %}">Register</a></p>
+                    </form>
+                    <i>
+                    {% for msg in messages %}
+                    {{msg}}
+                    {% endfor %}
+                    <i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}

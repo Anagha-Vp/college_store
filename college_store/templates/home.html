@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section id="hero">
+    <div class="hero-container">
+      <h1>Click Here and Purchase!</h1>
+        <br>
+      <a href="{% url 'purchase' %}" class="btn-get-started scrollto">Purchase</a>
+    </div>
+</section>
+{% endblock %}

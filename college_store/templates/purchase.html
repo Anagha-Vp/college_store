@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="background-container">
+   <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card mt-5 custom-card">
+                <div class="card-header text-center"><b>Enter Your Details Here</b></div>
+                <div class="card-body">
+                    <form action="purchase" method="post">
+                       {% csrf_token %}
+                        <div class="form-group">
+                            <label><b>Name : </b></label>
+                            <input type="text" name="name" class="form-control"  placeholder="Enter your name">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>DOB : </b></label>
+                            <input type="date" name="dob" class="form-control">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Age : </b></label>
+                            <input type="number" name="age" class="form-control" placeholder="Enter your Age">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Gender : </b></label>
+                            <input type="radio" name="gender" value="male"> Male
+                            <input type="radio" name="gender" value="female"> Female
+                            <input type="radio" name="gender" value="transgender"> Transgender
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Phone Number : </b></label>
+                            <input type="tel" name="phone" class="form-control" placeholder="Enter your Phone number">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Mail ID : </b></label>
+                            <input type="email" name="email" class="form-control" placeholder="Enter Your email">
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Address : </b></label>
+                            <textarea name="address" placeholder="Enter Your Address"></textarea>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Department : </b></label>
+                            <select id="department" onchange="updateCourses()">
+                                <option value="select">Select Department</option>
+                                <option value="science">Computer Science</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="electronics">Electronics</option>
+                                <option value="literature">Literature</option>
+                                <option value="arts">Arts</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Courses : </b></label>
+                            <select id="course" name="course">
+                                <option value="select">Select Course</option>
+                                <optgroup id="cs_courses" label="Computer Science"></optgroup>
+                                <optgroup id="commerce_courses" label="Commerce"></optgroup>
+                                <optgroup id="electronics_courses" label="Electronics"></optgroup>
+                                <optgroup id="literature_courses" label="Literature"></optgroup>
+                                <optgroup id="arts_courses" label="Arts"></optgroup>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <label><b>Purpose : </b></label>
+                            <select id="purpose">
+                                <option value="select">Select Purpose</option>
+                                <option>Enquiry</option>
+                                <option>Place order</option>
+                                <option>Return</option>
+                                <option>Complaints</option>
+                            </select>
+                        </div>
+                        <br>
+                         <div class="form-group">
+                            <label><b>Materials : </b></label>
+                           <input type="checkbox" id="book" value="book">
+                           <label for="book">Note Books</label>
+                           <input type="checkbox" id="pen" value="pen">
+                           <label for="pen">Pens</label>
+                           <input type="checkbox" id="Record books" value="record">
+                           <label for="Record books">Record Books </label>
+                           <input type="checkbox" id="Papers" value="Papers">
+                           <label for="Papers">Papers</label>
+                           <br>
+                           <input type="checkbox" id="Instrument" value="Instrument">
+                           <label for="Instrument">Instrument Box</label>
+                           <input type="checkbox" id="Napkins" value="Napkins">
+                           <label for="Napkins">Napkins</label>
+                           <input type="checkbox" id="bottle" value="bottle">
+                           <label for="bottle">Water Bottle</label>
+                           <input type="checkbox" id="textbook" value="textbook">
+                           <label for="textbook">Text Books</label>
+                           <br>
+                           <input type="checkbox" id="others" value="others">
+                           <label for="others">Other items</label>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <a href="{% url 'logout' %}" class="btn btn-danger">Logout</a>
+                        <br>
+                        <br>
+                        <i>
+                        {% for msg in messages %}
+                        {{msg}}
+                        {% endfor %}
+                        </i>
+                        <br>
+                        <br>
+                        <a href="{% url 'index' %}">Return to Home Page</a>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function updateCourses() {
+        var department = document.getElementById("department").value;
+        var courseDropdown = document.getElementById("course");
+        courseDropdown.innerHTML = '<option value="select">Select Course</option>'
+        if (department === "science") {
+            addOption(courseDropdown, "1","BTech CS");
+            addOption(courseDropdown, "2", "BTech IT");
+            addOption(courseDropdown, "3", "BSC CS");
+        } else if (department === "commerce") {
+            addOption(courseDropdown, "1", "B com");
+            addOption(courseDropdown, "2", "Charted Accountancy");
+            addOption(courseDropdown, "3", "BA Economics");
+        }else if (department === "electronics") {
+            addOption(courseDropdown, "1", "BTech EC");
+            addOption(courseDropdown, "2", "BTech EE");
+            addOption(courseDropdown, "3", "BSC EC");
+        }else if (department === "literature") {
+            addOption(courseDropdown, "1", "BA Malayalam");
+            addOption(courseDropdown, "2", "BA English");
+            addOption(courseDropdown, "3", "BA Hindi");
+        }else if (department === "arts") {
+            addOption(courseDropdown, "1", "BA Music");
+            addOption(courseDropdown, "2", "BA Bharathanatyam");
+            addOption(courseDropdown, "3", "BA Mohiniyattam");
+        }
+    }
+    function addOption(selectElement, value, text) {
+        var option = document.createElement("option");
+        option.value = value;
+        option.text = text;
+        selectElement.add(option);
+    }
+</script>
+{% endblock %}
